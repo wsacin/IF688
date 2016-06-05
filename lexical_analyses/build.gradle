@@ -1,13 +1,20 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
+apply plugin: 'application'
+
+mainClassName = "lexer.MiniJavaLexer"
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:2.4.6"
+    compile "java_cup:java_cup:0.9e"
+    compile "de.jflex:jflex-maven-plugin:1.6.1"
+}
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile 'de.jflex:jflex:1.6.1'
+run {
+    systemProperties System.getProperties()
 }
-
-
